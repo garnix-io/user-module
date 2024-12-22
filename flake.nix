@@ -59,7 +59,6 @@
               builtins.attrValues (builtins.mapAttrs
                 (name: projectConfig: {
                   users.users.${projectConfig.user} = {
-                    enable = true;
                     group = projectConfig.group;
                     extraGroups = projectConfig.groups;
                     shell = projectConfig.shell;
