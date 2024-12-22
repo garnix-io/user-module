@@ -18,16 +18,11 @@
           example = "alice";
         };
 
-        group = lib.mkOption {
-          type = lib.types.str;
-          description = "The primary group of the user";
-          default = "";
-        };
-
         groups = lib.mkOption {
           type = lib.types.listOf lib.types.str;
           description = "The groups the user belongs to";
           example = [ "wheel" ];
+          default = [ ];
         };
 
         shell = lib.mkOption {
@@ -59,8 +54,8 @@
               builtins.attrValues (builtins.mapAttrs
                 (name: projectConfig: {
                   users.users.${projectConfig.user} = {
-                    group = projectConfig.group;
                     extraGroups = projectConfig.groups;
+                    isNormalUser = true;
                     shell = pkgs.${projectConfig.shell};
                     openssh.authorizedKeys.keys = projectConfig.authorizedSshKeys;
                   };
