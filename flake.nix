@@ -61,7 +61,7 @@
                   users.users.${projectConfig.user} = {
                     group = projectConfig.group;
                     extraGroups = projectConfig.groups;
-                    shell = projectConfig.shell;
+                    shell = pkgs.${projectConfig.shell};
                     openssh.authorizedKeys.keys = projectConfig.authorizedSshKeys;
                   };
                   programs.zsh.enable = projectConfig.shell == "zsh";
