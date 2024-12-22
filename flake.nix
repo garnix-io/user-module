@@ -68,7 +68,7 @@
                   programs.zsh.enable = projectConfig.shell == "zsh";
                   programs.fish.enable = projectConfig.shell == "fish";
                 })
-                config.users);
+                config.user);
           };
       };
     };
