@@ -16,7 +16,7 @@
           type = lib.types.nonEmptyStr;
           description = "The linux username.";
           example = "alice";
-        };
+        } // { name = "user name"; };
 
         groups = lib.mkOption {
           type = lib.types.listOf lib.types.str;
@@ -36,7 +36,7 @@
           description =
             ''The public SSH keys that can be used to log in as this user. (Note that you must
             use the IP address rather than domain for SSH.)'';
-        };
+        } // { name = "SSH keys"; };
       };
     in
     {
