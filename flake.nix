@@ -1,5 +1,8 @@
 {
-  description = "A garnix module for Linux users";
+  description = ''A garnix module for adding Linux users and allowing remote access.
+
+  See the [module documentation](https://garnix.io/docs/modules/user) or the [module repo](https://github.com/garnix-io/user-module) additional info.
+  '';
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
 
@@ -14,13 +17,13 @@
       userSubmodule.options = {
         user = lib.mkOption {
           type = lib.types.nonEmptyStr;
-          description = "The linux username";
+          description = "The linux username.";
           example = "alice";
         };
 
         groups = lib.mkOption {
           type = lib.types.listOf lib.types.str;
-          description = "The groups the user belongs to";
+          description = "The groups the user belongs to.";
           example = [ "wheel" ];
           default = [ ];
         };
@@ -28,7 +31,7 @@
         shell = lib.mkOption {
           type = lib.types.enum [ "bash" "zsh" "fish" ];
           default = "bash";
-          description = "The users login shell";
+          description = "The users login shell.";
         };
 
         authorizedSshKeys = lib.mkOption {
@@ -44,7 +47,7 @@
         options = {
           user = lib.mkOption {
             type = lib.types.attrsOf (lib.types.submodule userSubmodule);
-            description = "An attrset of users";
+            description = "An attrset of users.";
           };
         };
 
