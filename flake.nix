@@ -1,6 +1,6 @@
 {
   description = ''
-    A garnix module for adding Linux users and allowing remote access.
+    A garnix module for adding Linux users and allowing remote access through `ssh`.
 
     [Documentation](https://garnix.io/docs/modules/user) - [Source](https://github.com/garnix-io/user-module).
   '';
