@@ -1,7 +1,8 @@
 {
-  description = ''A garnix module for adding Linux users and allowing remote access.
+  description = ''
+    A garnix module for adding Linux users and allowing remote access.
 
-  [Documentation](https://garnix.io/docs/modules/user) - [Source](https://github.com/garnix-io/user-module).
+    [Documentation](https://garnix.io/docs/modules/user) - [Source](https://github.com/garnix-io/user-module).
   '';
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
