@@ -1,5 +1,9 @@
 {
-  description = "A garnix module for Linux users.";
+  description = ''
+    A garnix module for adding Linux users and allowing remote access through `ssh`.
+
+    [Documentation](https://garnix.io/docs/modules/user) - [Source](https://github.com/garnix-io/user-module).
+  '';
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
 
@@ -12,11 +16,12 @@
       lib = nixpkgs.lib;
 
       userSubmodule.options = {
-        user = lib.mkOption {
-          type = lib.types.nonEmptyStr;
-          description = "The linux username.";
-          example = "alice";
-        } // { name = "user name"; };
+        user = lib.mkOption
+          {
+            type = lib.types.nonEmptyStr;
+            description = "The linux username.";
+            example = "alice";
+          } // { name = "user name"; };
 
         groups = lib.mkOption {
           type = lib.types.listOf lib.types.str;
@@ -31,12 +36,13 @@
           description = "The users login shell.";
         };
 
-        authorizedSshKeys = lib.mkOption {
-          type = lib.types.listOf lib.types.nonEmptyStr;
-          description =
-            ''The public SSH keys that can be used to log in as this user. (Note that you must
+        authorizedSshKeys = lib.mkOption
+          {
+            type = lib.types.listOf lib.types.nonEmptyStr;
+            description =
+              ''The public SSH keys that can be used to log in as this user. (Note that you must
             use the IP address rather than domain for SSH.)'';
-        } // { name = "SSH keys"; };
+          } // { name = "SSH keys"; };
       };
     in
     {
