@@ -1,6 +1,6 @@
 {
   description = ''
-    A garnix module for adding Linux users and allowing remote access through `ssh`.
+    A garnix module for adding Linux users and allowing remote access through `SSH`.
 
     [Documentation](https://garnix.io/docs/modules/user) - [Source](https://github.com/garnix-io/user-module).
   '';
@@ -19,7 +19,7 @@
         user = lib.mkOption
           {
             type = lib.types.nonEmptyStr;
-            description = "The linux username.";
+            description = "The Linux username.";
             example = "alice";
           } // { name = "user name"; };
 
