@@ -67,6 +67,15 @@
                   };
                   programs.zsh.enable = projectConfig.shell == "zsh";
                   programs.fish.enable = projectConfig.shell == "fish";
+                  services.openssh = {
+                    enable = true;
+                    settings = {
+                      PasswordAuthentication = false;
+                      KbdInteractiveAuthentication = false;
+                      AuthenticationMethods = "publickey";
+                      PermitRootLogin = "prohibit-password";
+                    };
+                  };
                 })
                 config.user);
           };
