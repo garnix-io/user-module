@@ -5,16 +5,13 @@
     [Documentation](https://garnix.io/docs/modules/user) - [Source](https://github.com/garnix-io/user-module).
   '';
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
-
   outputs =
     { self
-    , nixpkgs
     ,
     }:
+    {
+      garnixModules.default = { pkgs, lib, config, ... }:
     let
-      lib = nixpkgs.lib;
-
       userSubmodule.options = {
         user = lib.mkOption
           {
@@ -46,7 +43,6 @@
       };
     in
     {
-      garnixModules.default = { pkgs, config, ... }: {
         options = {
           user = lib.mkOption {
             type = lib.types.attrsOf (lib.types.submodule userSubmodule);
@@ -82,4 +78,3 @@
       };
     };
 }
-
